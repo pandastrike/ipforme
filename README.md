@@ -13,7 +13,8 @@ Then start the app using `rackup`.
 
 #### Usage: 
 
-``` curl -sF 'hostip=ident_4.3.3.3' http://domain/ > /dev/null
+``` 
+    curl -sF 'hostip=ident_4.3.3.3' http://domain/ > /dev/null
     # and to get the result 
     curl http://domain/ident
 ```
