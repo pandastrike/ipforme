@@ -14,7 +14,8 @@
 
 require 'sinatra'
 require 'redis'
-  
+require 'json'
+
 redis = Redis.new
  
 helpers do
@@ -45,8 +46,10 @@ post '/' do
 end
 
 get '/:hostip' do
-  @host = "#{params[:hostip]}" #.split('_')[0]
+  @host = "#{params[:hostip]}"
   @ip = redis.get "#{@host}"
+  content_type :json
+    { :host => @host, :ip => @ip }.to_json
 end
 
 not_found do
